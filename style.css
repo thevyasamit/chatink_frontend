@@ -1,0 +1,343 @@
+html, body {
+  width: 500px;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-container {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.popup-header h1 {
+  margin: 0;
+  font-size: 18px;
+  color: black; 
+  font-weight: bold; 
+  text-align: center;
+  flex-grow: 1; 
+}
+
+.centered-message {
+  text-align: center; 
+  font-weight: bold;
+  color: #333;
+}
+
+.close-btn {
+  font-size: 20px;
+  cursor: pointer;
+  color: #ff0000; 
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.popup-content {
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+  position: relative;
+}
+
+.popup-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  background-color: #f4f4f4;
+  border-top: 1px solid #ddd;
+  gap: 10px;;
+}
+
+
+.tab-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.tab-btn:hover {
+  background-color: #ddd;
+  border-radius: 50%;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.close-modal {
+  align-self: flex-end;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.links-list-container {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.links-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links-list li {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.links-list li:last-child {
+  border-bottom: none;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adds space between the buttons */
+  margin-top: 20px; /* Optional: adds some space above the buttons */
+}
+
+.action-buttons button {
+  padding: 10px 20px; /* Optional: Adjust button padding for better appearance */
+}
+
+
+
+.chat-box {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.chat-input-container {
+  display: flex;
+  align-items: center;
+}
+
+#chatInput {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#sendButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#sendButton i {
+  font-size: 16px;
+}
+
+.popup-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #f4f4f4;
+  border-top: 1px solid #ddd;
+}
+
+
+.settings-container {
+  position: relative;
+  margin-left: auto; /* Aligns the settings icon to the right */
+}
+
+#settingsIcon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.settings-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 100%; /* Positions the menu above the icon */
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Shadow adjusted for upward opening */
+  z-index: 10;
+  padding: 10px;
+  min-width: 150px;
+}
+
+.settings-menu button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.settings-menu button:hover {
+  background-color: #f0f0f0;
+}
+
+#deleteAccountButton {
+  background-color: red;   /* Red background */
+  color: black;            /* Black text */
+}
+
+#logoutButton {
+  background-color: green; /* Green background */
+  color: white;            /* White text */
+}
+
+#deleteAccountButton:hover {
+  background-color: darkred; /* Darker red on hover */
+}
+
+#logoutButton:hover {
+  background-color: darkgreen; /* Darker green on hover */
+}
+
+
+/* .back-btn {
+  font-size: 20px;
+  cursor: pointer;
+  color: #000; 
+  position: relative;
+  top: 10px;
+  left: 15px; 
+}
+
+.back-btn:hover {
+  color: #007bff;
+} */
+
+
+#chatBox {
+  max-height: 400px; /* Adjust based on your design */
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.chat-message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.user-message {
+  background-color: #e0ffe0; /* Light green for user messages */
+  align-self: flex-end;
+  text-align: right;
+}
+
+.ai-message {
+  background-color: #d0f0ff; /* Light gray for AI messages */
+  align-self: flex-start;
+  text-align: left;
+}
+
+
+.chat-header {
+  position: relative; /* Ensure relative positioning of header to position the back button */
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #ddd;
+}
+
+.back-btn {
+  position: absolute; /* Position it absolutely within the header */
+  top: 10px;
+  right: 10px; /* Align to the right */
+  font-size: 18px;
+  cursor: pointer;
+  color: #007bff; /* Blue color for the back button */
+  text-decoration: underline;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+.back-btn:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+.loading-message {
+  font-style: italic;
+  color: #999;
+}

@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "ChatInk",
+  "version": "2.0",
+  "description": "A Chrome extension that generates summaries using AI for your saved links!",
+  "icons": {
+    "16": "images/chatink_16.png",
+    "48": "images/chatink_48.png",
+    "128": "images/chatink_128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/chatink_16.png",
+      "48": "images/chatink_48.png",
+      "128": "images/chatink_128.png"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "cookies"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src http://127.0.0.1:8000/"
+  }
+}

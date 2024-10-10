@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatInk</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="popup-container">
+        <div class="popup-header">
+            <h1>ChatInk : Chat using your link(s)!</h1>
+            <span class="close-btn">&times;</span>
+        </div>
+
+        <!-- Login Section -->
+        <div id="loginSection" class="popup-content" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+            <button id="loginButton" style="background-color: black;">Login using <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24px" height="24px" style="vertical-align: middle; margin-left: 8px;">
+              <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+              <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+              <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+              <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+          </svg>
+
+            </button>
+        </div>
+
+        <!-- After Login Section -->
+        <div id="afterLoginSection" class="popup-content" style="display: none;">
+          <h2 id="afterLoginHeader" class="centered-message">Welcome, <span id="userName"></span>!</h2>
+          <h4 id="afterLoginHeader" class="centered-message">Add link(s) and select link(s) to chat using them.</h4>
+          <!-- Scrollable list of links -->
+          <div id="linksListContainer" class="links-list-container">
+            <ul id="linksList" class="links-list">
+              <!-- Links will be populated here -->
+            </ul>
+          </div>
+          <!-- Action buttons -->
+          <div class="action-buttons">
+            <button id="deleteLinksButton">Delete Selected Link(s)</button>
+            <button id="chatLinksButton">Chat Using Selected Links(s)</button>
+          </div>
+        </div>
+
+        <div id="chatSection" class="popup-content" style="display: none;">
+          <div class="chat-header">
+            <h1>Chat Section</h1>
+            <span id="backBtn" class="back-btn">&#8592; Back</span> <!-- Back Arrow -->
+          </div>
+          
+          <div class="selected-links-container">
+            <button class="collapsible">Click to hide selected links</button>
+            <div class="collapsible-content">
+              <ul id="selectedLinksList">
+                <!-- Links will be populated here -->
+              </ul>
+            </div>
+          </div>
+        
+          <!-- Chat interface -->
+          <div class="chat-box" id="chatBox">
+            <!-- Chat messages will go here -->
+          </div>
+        
+          <!-- User input field and send button -->
+          <div class="chat-input-container">
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="sendButton"><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+        
+
+        <!-- Footer with Buttons (Initially hidden) -->
+        <div class="popup-footer" id="footerButtons" style="display: none;">
+          <button id="pageSummaryButton">Page Summary</button>
+          <button id="addLinkButton">Add this Page</button>
+          <div class="settings-container" id="settingsContainer">
+            <i id="settingsIcon" class="fas fa-cog"></i> <!-- Settings icon -->
+            <div id="settingsMenu" class="settings-menu">
+                <button id="deleteAccountButton">Delete Account</button>
+                <button id="logoutButton">Logout</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Hidden Modal for adding link -->
+    <div id="addLinkModal" class="modal" style="display: none;">
+      <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h3>Add Link</h3>
+          <label for="linkName">Name:</label>
+          <input type="text" id="linkName" placeholder="Enter name for the link">
+          <p id="linkText"></p>
+          <button id="saveLinkButton">Save</button>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
